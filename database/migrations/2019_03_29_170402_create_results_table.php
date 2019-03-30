@@ -18,7 +18,6 @@ class CreateResultsTable extends Migration
             $table->integer('user_id')->unsigned()->nullable();
             $table->integer('question_id')->unsigned()->nullable();
             $table->tinyInteger('correct')->nullable()->default(0);
-            $table->datetime('date_check')->nullable();
             $table->integer('questions_option_id')->unsigned()->nullable();
             $table->timestamps();
         });
