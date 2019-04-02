@@ -123,9 +123,18 @@ return [
         ],
         'ACCOUNT SETTINGS',
         [
-            'text' => 'Profile',
-            'url'  => 'admin/settings',
+            'text' => 'Thông tin người dùng',
             'icon' => 'user',
+            'submenu' => [
+                [
+                    'text' => 'Vai trò',
+                    'url'  => 'roles',
+                ],
+                [
+                    'text' => 'Thêm người dùng',
+                    'url'  => 'user_profiles/create',
+                ]
+            ]
         ],
         [
             'text' => 'Change Password',

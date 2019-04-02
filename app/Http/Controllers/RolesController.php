@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Role;
-use Illuminate\Http\Request;
+use App\Http\Requests\RoleRequest;
 
 class RolesController extends Controller
 {
@@ -14,7 +14,9 @@ class RolesController extends Controller
      */
     public function index()
     {
-        //
+        $roles = Role::paginate(1);
+
+        return view('roles.index', compact('roles'));
     }
 
     /**
@@ -24,7 +26,7 @@ class RolesController extends Controller
      */
     public function create()
     {
-        //
+        return view('roles.create');
     }
 
     /**
@@ -33,9 +35,10 @@ class RolesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RoleRequest $request)
     {
-        //
+        Role::create($request->all());
+        return redirect()->route('roles.index');
     }
 
     /**
@@ -46,7 +49,7 @@ class RolesController extends Controller
      */
     public function show(Role $role)
     {
-        //
+        return view('roles.show', compact('role'));
     }
 
     /**
@@ -57,7 +60,7 @@ class RolesController extends Controller
      */
     public function edit(Role $role)
     {
-        //
+        return view('roles.edit', compact('role'));
     }
 
     /**
@@ -67,9 +70,11 @@ class RolesController extends Controller
      * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role)
+    public function update(RoleRequest $request, Role $role)
     {
-        //
+        $role->update($request->all());
+
+        return redirect()->route('roles.index');
     }
 
     /**
@@ -80,6 +85,7 @@ class RolesController extends Controller
      */
     public function destroy(Role $role)
     {
-        //
+        $role->delete();
+        return redirect()->route('roles.index');
     }
 }

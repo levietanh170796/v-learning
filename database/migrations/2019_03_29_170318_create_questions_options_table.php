@@ -16,8 +16,8 @@ class CreateQuestionsOptionsTable extends Migration
         Schema::create('questions_options', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('option')->nullable();
-            $table->tinyInteger('correct')->nullable()->default(0);
-            $table->integer('question_id')->unsigned()->nullable();
+            $table->tinyInteger('correct')->default(0);
+            $table->integer('question_id')->unsigned();
             $table->timestamps();
         });
     }

@@ -15,10 +15,10 @@ class CreateResultsTable extends Migration
     {
         Schema::create('results', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id')->unsigned()->nullable();
-            $table->integer('question_id')->unsigned()->nullable();
-            $table->tinyInteger('correct')->nullable()->default(0);
-            $table->integer('questions_option_id')->unsigned()->nullable();
+            $table->integer('user_id')->unsigned();
+            $table->integer('question_id')->unsigned();
+            $table->tinyInteger('correct')->default(0);
+            $table->integer('questions_option_id')->unsigned();
             $table->timestamps();
         });
     }

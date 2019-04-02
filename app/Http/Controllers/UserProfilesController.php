@@ -24,7 +24,7 @@ class UserProfilesController extends Controller
      */
     public function create()
     {
-        //
+        return view('user_profiles.create');
     }
 
     /**

@@ -15,10 +15,10 @@ class CreateUserProfilesTable extends Migration
     {
         Schema::create('user_profiles', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('address');
-            $table->string('phone_number');
-            $table->string('job');
-            $table->integer('user_id')->unsigned()->nullable();
+            $table->string('address')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->string('job')->nullable();
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
     }
