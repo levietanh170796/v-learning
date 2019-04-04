@@ -17,7 +17,7 @@ class CreateQuestionsTable extends Migration
             $table->bigIncrements('id');
             $table->text('title');
             $table->integer('level_id')->unsigned();
-            $table->integer('subjects_id')->unsigned();
+            $table->integer('subject_id')->unsigned();
             $table->timestamps();
         });
     }

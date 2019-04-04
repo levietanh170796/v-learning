@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Level;
 use Illuminate\Http\Request;
+use App\Http\Requests\LevelsRequest;
 
 class LevelsController extends Controller
 {
@@ -14,7 +15,9 @@ class LevelsController extends Controller
      */
     public function index()
     {
-        //
+        $levels = Level::paginate(10);
+
+        return view('levels.index', compact('levels'));
     }
 
     /**
@@ -24,7 +27,7 @@ class LevelsController extends Controller
      */
     public function create()
     {
-        //
+        return view('levels.create');
     }
 
     /**
@@ -33,9 +36,10 @@ class LevelsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(LevelsRequest $request)
     {
-        //
+        Level::create($request->all());
+        return redirect()->route('levels.index');
     }
 
     /**
@@ -46,7 +50,7 @@ class LevelsController extends Controller
      */
     public function show(Level $level)
     {
-        //
+        return view('levels.show', compact('level'));
     }
 
     /**
@@ -57,7 +61,7 @@ class LevelsController extends Controller
      */
     public function edit(Level $level)
     {
-        //
+        return view('levels.edit', compact('level'));
     }
 
     /**
@@ -67,9 +71,11 @@ class LevelsController extends Controller
      * @param  \App\Level  $level
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Level $level)
+    public function update(LevelsRequest $request, Level $level)
     {
-        //
+        $level->update($request->all());
+
+        return redirect()->route('levels.index');
     }
 
     /**
@@ -80,6 +86,7 @@ class LevelsController extends Controller
      */
     public function destroy(Level $level)
     {
-        //
+        $level->delete();
+        return redirect()->route('levels.index');
     }
 }

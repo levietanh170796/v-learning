@@ -1,14 +1,14 @@
 @extends('adminlte::page')
 
-@section('title', 'Vai trò')
+@section('title', 'Khối lớp học')
 
 @section('content_header')
-    <h1>Vai trò</h1>
+    <h1>Khối lớp học</h1>
 @stop
 
 @section('content')
   <div class="col col-md-6">
-      {!! Form::model($role, ['method' => 'PUT', 'route' => ['roles.update', $role->id]]) !!}
+      {!! Form::model($level, ['method' => 'PUT', 'route' => ['levels.update', $level->id]]) !!}
         <div class="panel panel-default">
           <div class="panel-heading">
               Sửa thông tin
@@ -27,7 +27,7 @@
                       </ul>
                     </div>
                   @endif
-                  {!! Form::label('title', 'Vai trò*', ['class' => 'control-label']) !!}
+                  {!! Form::label('title', 'Khối lớp học*', ['class' => 'control-label']) !!}
                   {!! Form::text('title', old('title'), ['class' => 'form-control', 'placeholder' => '']) !!}
                   {!! Form::label('description', 'Mô tả', ['class' => 'control-label']) !!}
                   {!! Form::text('description', old('description'), ['class' => 'form-control', 'placeholder' => '']) !!}

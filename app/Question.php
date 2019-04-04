@@ -13,7 +13,7 @@ class Question extends Model
     }
 
     public function subjects() {
-        return $this->belongsTo(Subjects::class, 'subjects_id');
+        return $this->belongsTo(Subject::class, 'subject_id');
     }
 
     public function questions_options() {

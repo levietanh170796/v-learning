@@ -1,14 +1,14 @@
 @extends('adminlte::page')
 
-@section('title', 'Vai trò')
+@section('title', 'Bộ môn học')
 
 @section('content_header')
-    <h1>Vai trò</h1>
+    <h1>Bộ môn học</h1>
 @stop
 
 @section('content')
   <p>
-    <a href="{{ route('roles.create') }}" class="btn btn-success">
+    <a href="{{ route('subjects.create') }}" class="btn btn-success">
       <i class="fa fa-plus-circle"></i> Thêm mới
     </a>
   </p>
@@ -16,34 +16,34 @@
     <div class="row">
       <div class="box">
         <div class="box-header with-border">
-          <h3 class="box-title">Danh sách vai trò</h3>
+          <h3 class="box-title">Danh sách bộ môn học</h3>
         </div>
         <div class="box-body">
           <table class="table table-bordered">
             <tr>
               <th style="width: 50px">#</th>
-              <th>Vai trò</th>
+              <th>Bộ môn học</th>
               <th>Mô tả</th>
               <th style="width: 200px"></th>
             </tr>
-            @if (count($roles) > 0)
-              @foreach ($roles as $role)
-                  <tr data-entry-id="{{ $role->id }}">
-                      <td>{{ $role->id }}.</td>
-                      <td>{{ $role->title }}</td>
-                      <td>{{ $role->description }}</td>
+            @if (count($subjects) > 0)
+              @foreach ($subjects as $subject)
+                  <tr data-entry-id="{{ $subject->id }}">
+                      <td>{{ $subject->id }}.</td>
+                      <td>{{ $subject->title }}</td>
+                      <td>{{ $subject->description }}</td>
                       <td>
-                          <a href="{{ route('roles.show',[$role->id]) }}" class="btn btn-xs btn-primary">
+                          <a href="{{ route('subjects.show',[$subject->id]) }}" class="btn btn-xs btn-primary">
                             <i class="fa fa-eye"></i>
                           </a>
-                          <a href="{{ route('roles.edit',[$role->id]) }}" class="btn btn-xs btn-info">
+                          <a href="{{ route('subjects.edit',[$subject->id]) }}" class="btn btn-xs btn-info">
                             <i class="fa  fa-edit "></i>
                           </a>
                           {!! Form::open(array(
                               'style' => 'display: inline-block;',
                               'method' => 'DELETE',
                               'onsubmit' => "return confirm('Bạn có muốn xoá không?');",
-                              'route' => ['roles.destroy', $role->id])) !!}
+                              'route' => ['subjects.destroy', $subject->id])) !!}
                           {{ Form::button('<i class="fa fa-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-xs btn-danger'] )  }}
                           {!! Form::close() !!}
                       </td>
@@ -55,7 +55,7 @@
                 </tr>
             @endif
           </table>
-          {{ $roles->links() }}
+          {{ $subjects->links() }}
         </div>
       </div>
     </div>

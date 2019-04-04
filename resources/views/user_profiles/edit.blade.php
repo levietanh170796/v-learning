@@ -3,12 +3,12 @@
 @section('title', 'Vai trò')
 
 @section('content_header')
-    <h1>Vai trò</h1>
+    <h1>Cập nhật thông tin người dùng</h1>
 @stop
 
 @section('content')
   <div class="col col-md-6">
-      {!! Form::model($role, ['method' => 'PUT', 'route' => ['roles.update', $role->id]]) !!}
+      {!! Form::model($userProfile, ['method' => 'PUT', 'route' => ['user_profiles.update', $userProfile->id]]) !!}
         <div class="panel panel-default">
           <div class="panel-heading">
               Sửa thông tin
@@ -27,10 +27,12 @@
                       </ul>
                     </div>
                   @endif
-                  {!! Form::label('title', 'Vai trò*', ['class' => 'control-label']) !!}
-                  {!! Form::text('title', old('title'), ['class' => 'form-control', 'placeholder' => '']) !!}
-                  {!! Form::label('description', 'Mô tả', ['class' => 'control-label']) !!}
-                  {!! Form::text('description', old('description'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                  {!! Form::label('address', 'Địa chỉ', ['class' => 'control-label']) !!}
+                  {!! Form::text('address', old('title'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                  {!! Form::label('phone_number', 'Số điện thoại', ['class' => 'control-label']) !!}
+                  {!! Form::text('phone_number', old('phone_number'), ['class' => 'form-control', 'placeholder' => '']) !!}
+                  {!! Form::label('job', 'Nghề nghiệp', ['class' => 'control-label']) !!}
+                  {!! Form::text('job', old('job'), ['class' => 'form-control', 'placeholder' => '']) !!}
               </div>
             </div>
           </div>

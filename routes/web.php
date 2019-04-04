@@ -19,6 +19,9 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'HomeController@index')->name('home');
-    Route::resource('user_profiles', 'UserProfilesController');
+    Route::resource('user_profiles', 'UserProfilesController')->only(['update']);
+    Route::get('user_profiles', 'UserProfilesController@edit')->name('user_profiles.edit');
     Route::resource('roles', 'RolesController');
+    Route::resource('levels', 'LevelsController');
+    Route::resource('subjects', 'SubjectsController');
 });

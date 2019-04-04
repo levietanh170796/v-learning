@@ -24,7 +24,7 @@ class UserProfilesController extends Controller
      */
     public function create()
     {
-        return view('user_profiles.create');
+
     }
 
     /**
@@ -55,9 +55,10 @@ class UserProfilesController extends Controller
      * @param  \App\UserProfile  $userProfile
      * @return \Illuminate\Http\Response
      */
-    public function edit(UserProfile $userProfile)
+    public function edit()
     {
-        //
+        $userProfile = auth()->user()->user_profile; 
+        return view('user_profiles.edit', compact('userProfile'));
     }
 
     /**
@@ -69,7 +70,8 @@ class UserProfilesController extends Controller
      */
     public function update(Request $request, UserProfile $userProfile)
     {
-        //
+        $userProfile->update($request->all());
+        return redirect()->route('user_profiles.edit');
     }
 
     /**

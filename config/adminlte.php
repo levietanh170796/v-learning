@@ -108,20 +108,23 @@ return [
     */
 
     'menu' => [
-        'MAIN NAVIGATION',
+        'Quản lý chung',
         [
-            'text' => 'Blog',
-            'url'  => 'admin/blog',
-            'can'  => 'manage-blog',
+            'text'        => 'Khối lớp học',
+            'url'         => 'levels',
+            'icon'        => 'bookmark',
         ],
         [
-            'text'        => 'Pages',
-            'url'         => 'admin/pages',
-            'icon'        => 'file',
-            'label'       => 4,
-            'label_color' => 'success',
+            'text'        => 'Bộ môn học',
+            'url'         => 'subjects',
+            'icon'        => 'book',
         ],
         'ACCOUNT SETTINGS',
+        [
+            'text' => 'Thông tin người dùng',
+            'icon' => 'user',
+            'url'  => 'user_profiles',
+        ],
         [
             'text' => 'Thông tin người dùng',
             'icon' => 'user',
@@ -129,10 +132,6 @@ return [
                 [
                     'text' => 'Vai trò',
                     'url'  => 'roles',
-                ],
-                [
-                    'text' => 'Thêm người dùng',
-                    'url'  => 'user_profiles/create',
                 ]
             ]
         ],
