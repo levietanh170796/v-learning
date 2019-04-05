@@ -6,17 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
-    protected $fillable = ['title', 'level_id', 'subjects_id'];
+    protected $fillable = ['title', 'level_id', 'subject_id'];
 
     public function level() {
         return $this->belongsTo(Level::class, 'level_id');
     }
 
-    public function subjects() {
+    public function subject() {
         return $this->belongsTo(Subject::class, 'subject_id');
     }
 
-    public function questions_options() {
+    public function question_options() {
         return $this->hasMany(QuestionsOption::class, 'question_id');
     }
 

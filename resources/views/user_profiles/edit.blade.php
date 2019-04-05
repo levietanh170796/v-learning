@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Vai trò')
+@section('title', 'Thông tin người dùng')
 
 @section('content_header')
     <h1>Cập nhật thông tin người dùng</h1>

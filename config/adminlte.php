@@ -108,7 +108,7 @@ return [
     */
 
     'menu' => [
-        'Quản lý chung',
+        'QUẢN LÝ CHUNG',
         [
             'text'        => 'Khối lớp học',
             'url'         => 'levels',
@@ -119,21 +119,27 @@ return [
             'url'         => 'subjects',
             'icon'        => 'book',
         ],
+        'QUẢN LÝ CÂU HỎI',
+        [
+            'text'        => 'Vòng kiểm tra',
+            'url'         => 'contest_rounds',
+            'icon'        => 'graduation-cap',
+        ],
+        [
+            'text'        => 'Câu hỏi',
+            'url'         => 'questions',
+            'icon'        => 'question-circle',
+        ],
         'ACCOUNT SETTINGS',
         [
             'text' => 'Thông tin người dùng',
             'icon' => 'user',
             'url'  => 'user_profiles',
         ],
-        [
-            'text' => 'Thông tin người dùng',
-            'icon' => 'user',
-            'submenu' => [
-                [
-                    'text' => 'Vai trò',
-                    'url'  => 'roles',
-                ]
-            ]
+        [   
+            'text' => 'Vai trò',
+            'url'  => 'roles',
+            'icon' => 'key'
         ],
         [
             'text' => 'Change Password',
