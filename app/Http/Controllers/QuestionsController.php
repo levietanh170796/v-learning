@@ -48,7 +48,6 @@ class QuestionsController extends Controller
      */
     public function store(QuestionRequest $request)
     {
-        
         $request->validated();
 
         $question = Question::create($request->all());
@@ -97,8 +96,8 @@ class QuestionsController extends Controller
         $corrects = [];
         $i = 1;
         $question_options = $question->question_options;
-        foreach ($question_options as $key => $value) {
-            $corrects[$key] = "Đáp án ".$i;
+        foreach ($question_options as $value) {
+            $corrects[$value->id] = "Đáp án ".$i;
             $i++;
         }
 
@@ -114,7 +113,24 @@ class QuestionsController extends Controller
      */
     public function update(QuestionRequest $request, Question $question)
     {
-        //
+        $request->validated();
+
+        $question->update($request->all());
+        $correct_id = $request->correct_id;
+        $options = [
+            0 =>  $request->option1,
+            1 =>  $request->option2,
+            2 =>  $request->option3,
+            3 =>  $request->option4
+        ];
+        foreach ($question->question_options as $key => $answer) {
+            $correct = ($correct_id == $answer->id) ? 1 : 0;
+            $answer->option = $options[$key];
+            $answer->correct = $correct;
+            $answer->save();
+        }
+
+        return redirect()->route('questions.index');
     }
 
     /**
@@ -125,6 +141,7 @@ class QuestionsController extends Controller
      */
     public function destroy(Question $question)
     {
+        $question->question_options()->delete();
         $question->delete();
         return redirect()->route('questions.index');
     }
