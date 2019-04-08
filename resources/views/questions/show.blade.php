@@ -14,7 +14,7 @@
       
       <div class="panel-body">
           <div class="row">
-              <div class="col-md-6">
+              <div class="col-md-12">
                   <table class="table table-bordered table-striped">
                       <tr>
                         <th>Câu hỏi</th>
@@ -45,14 +45,17 @@
 								<tr data-entry-id="{{ $answer->id }}">
 									<td>{{ $answer->id }}.</td>
 									<td>{{ $answer->option }}</td>
-									<td>{{ $answer->correct }}</td>
 									<td>
-										<a href="{{ route('question_options.show',[$answer->id]) }}" class="btn btn-xs btn-primary">
-											<i class="fa fa-eye"></i>
-										</a>
-										<a href="{{ route('question_options.edit',[$answer->id]) }}" class="btn btn-xs btn-info">
-											<i class="fa  fa-edit "></i>
-										</a>
+                    @if($answer->correct === 1)
+                      <i class="fa  fa-check text-success"></i>
+                    @else
+                      <i class="fa  fa-times text-danger"></i>
+                    @endif
+                  </td>
+									<td>
+										<a href="{{ route('questions.edit',[$question->id]) }}" class="btn btn-xs btn-info">
+                      <i class="fa  fa-edit "></i>
+                    </a>
 									</td>
 								</tr>
 							@endforeach

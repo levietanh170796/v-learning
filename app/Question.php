@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Question extends Model
 {
-    protected $fillable = ['title', 'level_id', 'subject_id'];
+    protected $fillable = ['title', 'level_id', 'subject_id', 'degree'];
 
     public function level() {
         return $this->belongsTo(Level::class, 'level_id');

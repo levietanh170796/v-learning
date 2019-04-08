@@ -5,6 +5,8 @@
           href="{{ asset('vendor/adminlte/dist/css/skins/skin-' . config('adminlte.skin', 'blue') . '.min.css')}} ">
     @stack('css')
     @yield('css')
+    <link rel="stylesheet"
+          href="{{ asset('/css/common.css')}} ">
 @stop
 
 @section('body_class', 'skin-' . config('adminlte.skin', 'blue') . ' sidebar-mini ' . (config('adminlte.layout') ? [

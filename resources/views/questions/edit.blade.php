@@ -33,6 +33,8 @@
                 {!!Form::select('level_id', $levels, old('level_id'), ['class' => 'form-control'])!!}
                 {!! Form::label('subject_id', 'Bộ môn học*', ['class' => 'control-label']) !!}
                 {!!Form::select('subject_id', $subjects, old('subject_id'), ['class' => 'form-control'])!!}
+                {!! Form::label('degree', 'Mức độc*', ['class' => 'control-label']) !!}
+                {!!Form::select('degree', $degrees, old('degree'), ['class' => 'form-control'])!!}
                 @foreach ($question_options as $answer)
                   {!! Form::label('option'.($loop->index + 1), 'Đáp án '.($loop->index + 1).'*', ['class' => 'control-label']) !!}
                   {!! Form::text('option'.($loop->index + 1), $answer->option, ['class' => 'form-control', 'placeholder' => '']) !!}

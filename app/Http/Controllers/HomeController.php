@@ -21,8 +21,19 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        return view('home');
+    public function index(Request $request)
+    {   
+        $level = $request->level;
+        $subject = $request->subject;
+
+        if(isset($level) && isset($subject)) {
+            $show = "question";
+        } elseif(isset($level)) {
+            $show = "subject";
+        } else {
+            $show = "level";
+        }
+
+        return view('home', compact('show', 'level', 'subject'));
     }
 }

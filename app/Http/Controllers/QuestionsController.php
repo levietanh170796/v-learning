@@ -37,7 +37,13 @@ class QuestionsController extends Controller
             4 => "Đáp án 4",
         ];
 
-        return view('questions.create', compact('levels', 'subjects', 'corrects'));
+        $degree = [
+            1 => 'Dễ',
+            2 => 'Trung bình',
+            3 => 'Khó'
+        ];
+
+        return view('questions.create', compact('levels', 'subjects', 'corrects', 'degrees'));
     }
 
     /**
@@ -101,7 +107,13 @@ class QuestionsController extends Controller
             $i++;
         }
 
-        return view('questions.edit', compact('question', 'levels', 'subjects', 'corrects', 'question_options'));
+        $degrees = [
+            1 => 'Dễ',
+            2 => 'Trung bình',
+            3 => 'Khó'
+        ];
+
+        return view('questions.edit', compact('question', 'levels', 'subjects', 'corrects', 'question_options', 'degrees'));
     }
 
     /**

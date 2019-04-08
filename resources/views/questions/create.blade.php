@@ -33,6 +33,8 @@
                 {!!Form::select('level_id', $levels, old('level_id'), ['class' => 'form-control'])!!}
                 {!! Form::label('subject_id', 'Bộ môn học*', ['class' => 'control-label']) !!}
                 {!!Form::select('subject_id', $subjects, old('subject_id'), ['class' => 'form-control'])!!}
+                {!! Form::label('degree', 'Mức độc*', ['class' => 'control-label']) !!}
+                {!!Form::select('degree', $degrees, old('degree'), ['class' => 'form-control'])!!}
                 {!! Form::label('option1', 'Đáp án 1*', ['class' => 'control-label']) !!}
                 {!! Form::text('option1', old('option1'), ['class' => 'form-control', 'placeholder' => '']) !!}
                 {!! Form::label('option2', 'Đáp án 2*', ['class' => 'control-label']) !!}

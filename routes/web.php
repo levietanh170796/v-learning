@@ -26,5 +26,5 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('subjects', 'SubjectsController');
     Route::resource('contest_rounds', 'ContestRoundsController');
     Route::resource('questions', 'QuestionsController');
-    Route::resource('question_options', 'QuestionOptionsController')->except(['create', 'store', 'destroy']);
+    // Route::resource('question_options', 'QuestionOptionsController')->except(['create', 'store', 'destroy']);
 });
